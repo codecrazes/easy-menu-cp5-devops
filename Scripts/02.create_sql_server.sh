@@ -1,5 +1,5 @@
 RG="rg-easymenu"
-LOCATION="eastus"
+LOCATION="eastus2"
 SERVER="sqlserver-easymenu-rm558883"
 DB="db-easymenu"
 ADMIN_USER="admsql"
