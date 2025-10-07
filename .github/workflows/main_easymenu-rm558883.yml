@@ -9,6 +9,8 @@ env:
   SOLUTION_PATH: EasyMenu-main/EasyMenu.sln
   API_PROJECT: EasyMenu-main/EasyMenu.Api.Admin/EasyMenu.Api.Admin.csproj
   PUBLISH_DIR: ${{ github.workspace }}/publish
+  WEBAPP_NAME: easymenu-rm558883
+  RESOURCE_GROUP: rg-easymenu
 
 jobs:
   build:
@@ -58,11 +60,23 @@ jobs:
         with:
           client-id: ${{ secrets.__clientidsecretname__ }}
           tenant-id: ${{ secrets.__tenantidsecretname__ }}
-          subscription-id: ${{ secrets.__subscriptionidsecretname__ }}
+          subscription-id: ${{ secrets::__subscriptionidsecretname__ }}
+
+      - name: Set App Settings
+        uses: azure/cli@v2
+        with:
+          inlineScript: |
+            # Connection string via secret do GitHub
+            az webapp config appsettings set \
+              --resource-group "${{ env.RESOURCE_GROUP }}" \
+              --name "${{ env.WEBAPP_NAME }}" \
+              --settings \
+                ConnectionStrings__DefaultConnection="${{ secrets.CONNECTIONSTRINGS__DEFAULTCONNECTION }}" \
+                ASPNETCORE_ENVIRONMENT="Production"
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'easymenu-rm558883'
+          app-name: '${{ env.WEBAPP_NAME }}'
           slot-name: 'Production'
           package: ./app
