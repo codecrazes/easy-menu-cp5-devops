@@ -1,4 +1,8 @@
 APPINSIGHTS="ai-easymenu"
+PLAN="plan-easymenu"
+WEBAPP="easymenu-rm558883"
+RG="rg-easymenu"
+LOCATION="eastus2"
 
 az monitor app-insights component create \
   --app $APPINSIGHTS \
