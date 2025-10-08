@@ -17,7 +17,7 @@ GH_SECRET_CLIENT_ID="__clientidsecretname__"
 GH_SECRET_TENANT_ID="__tenantidsecretname__"
 GH_SECRET_SUBSCRIPTION_ID="__subscriptionidsecretname__"
 
-APP_DISPLAY_NAME="sp-easymenu-gh-oidc"
+APP_DISPLAY_NAME="easymenu-gh-oidc"
 
 
 #########################################

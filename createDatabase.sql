@@ -1,19 +1,19 @@
 
 -- -----------------------------------------------------
--- Schema easyMenu
+-- Schema db-easymenu
 -- -----------------------------------------------------
 
-IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = 'easyMenu')
+IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = 'db-easymenu')
   BEGIN
-    CREATE DATABASE [easyMenu]
+    CREATE DATABASE [db-easymenu]
   END
 GO
 
-USE [easyMenu]
+USE [db-easymenu]
 GO
 
 -- -----------------------------------------------------
--- Table `easyMenu`.`user`
+-- Table `db-easymenu`.`user`
 -- -----------------------------------------------------
 
 IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='user' and xtype='U')
@@ -29,7 +29,7 @@ BEGIN
 END
 
 -- -----------------------------------------------------
--- Table `easyMenu`.`menu`
+-- Table `db-easymenu`.`menu`
 -- -----------------------------------------------------
 
 IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='menu' and xtype='U')
@@ -45,7 +45,7 @@ END
 
 
   -- ---------------------------------------------------
--- Table `easyMenu`.`disheType`
+-- Table `db-easymenu`.`disheType`
 -- -----------------------------------------------------
 
 IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='disheType' and xtype='U')
@@ -60,7 +60,7 @@ BEGIN
 END
 
 -- -----------------------------------------------------
--- Table `easyMenu`.`dishes`
+-- Table `db-easymenu`.`dishes`
 -- -----------------------------------------------------
 
 IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='dishes' and xtype='U')
@@ -81,7 +81,7 @@ BEGIN
  END
 
     -- ---------------------------------------------------
--- Table `easyMenu`.`menuOption`
+-- Table `db-easymenu`.`menuOption`
 -- -----------------------------------------------------
 
 IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='menuOption' and xtype='U')
@@ -96,7 +96,7 @@ BEGIN
 END
 
   -- ---------------------------------------------------
--- Table `easyMenu`.`restaurant`
+-- Table `db-easymenu`.`restaurant`
 -- -----------------------------------------------------
 
 IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='restaurant' and xtype='U')
